@@ -1,0 +1,4 @@
+Opens a file for appending at the end of the file without truncating it. 
+Creates a new file if it does not exist.
+New Text.New Text.
+New Text.
