@@ -28,7 +28,7 @@ import pandas
 data = pandas.read_csv("nato_phonetic_alphabet.csv")
 alphabet_dict = {row.letter: row.code for (index, row) in data.iterrows()}
 
-input = input("Write Something? \n")
-result = [alphabet_dict[letter.upper()] for letter in input]
+input = input("Enter a word? \n").upper()
+result = [alphabet_dict[letter] for letter in input]
 
 print(result)
