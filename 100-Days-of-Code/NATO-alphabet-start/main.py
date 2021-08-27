@@ -1,3 +1,5 @@
+import pandas
+
 # student_dict = {
 #     "student": ["Angela", "James", "Lily"],
 #     "score": [56, 76, 98]
@@ -8,7 +10,6 @@
 #     #Access key and value
 #     pass
 
-import pandas
 # student_data_frame = pandas.DataFrame(student_dict)
 
 # #Loop through rows of a data frame
@@ -21,14 +22,21 @@ import pandas
 # {new_key:new_value for (index, row) in df.iterrows()}
 
 # TODO 1. Create a dictionary in this format:
-{"A": "Alfa", "B": "Bravo"}
+# {"A": "Alfa", "B": "Bravo"}
 
 # TODO 2. Create a list of the phonetic code words from a word that the user inputs.
 
 data = pandas.read_csv("nato_phonetic_alphabet.csv")
-alphabet_dict = {row.letter: row.code for (index, row) in data.iterrows()}
+phonetic_dict = {row.letter: row.code for (index, row) in data.iterrows()}
 
-input = input("Enter a word? \n").upper()
-result = [alphabet_dict[letter] for letter in input]
+is_on = True
 
-print(result)
+while is_on:
+    word = input("Enter a word: ").upper()
+    try:
+        result = [phonetic_dict[letter] for letter in word]
+    except KeyError:
+        print('Sorry, only letters in the alphabet please.\n')
+    else:
+        is_on = False
+        print(result)
