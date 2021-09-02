@@ -1,10 +1,10 @@
 from tkinter import *
 import requests
-END_POINT = "https://api.kanye.rest/"
+ENDPOINT = "https://api.kanye.rest/"
 
 
 def get_quote():
-    response = requests.get(url=END_POINT)
+    response = requests.get(url=ENDPOINT)
     response.raise_for_status()
     data = response.json()
     canvas.itemconfig(quote_text, text=data['quote'])

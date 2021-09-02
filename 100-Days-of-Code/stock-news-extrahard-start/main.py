@@ -5,8 +5,8 @@ from private_info import *
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
 
-STOCK_API_END_POINT = 'https://www.alphavantage.co/query'
-NEW_API_END_POINT = 'https://newsapi.org/v2/everything'
+STOCK_API_ENDPOINT = 'https://www.alphavantage.co/query'
+NEW_API_ENDPOINT = 'https://newsapi.org/v2/everything'
 
 STOCK_PARAMS = {
     "function": "TIME_SERIES_DAILY",
@@ -14,7 +14,7 @@ STOCK_PARAMS = {
     "apikey": STOCK_API_KEY
 }
 
-stock_response = requests.get(url=STOCK_API_END_POINT, params=STOCK_PARAMS)
+stock_response = requests.get(url=STOCK_API_ENDPOINT, params=STOCK_PARAMS)
 stock_data = stock_response.json()["Time Series (Daily)"]
 # stock_data_list = [value for (key, value) in stock_data.items()]
 
@@ -35,7 +35,7 @@ if abs(diff_percent) > 5:
         "apiKey": NEWS_API_KEY,
     }
 
-    news_response = requests.get(url=NEW_API_END_POINT, params=NEW_PARAMS)
+    news_response = requests.get(url=NEW_API_ENDPOINT, params=NEW_PARAMS)
     news_data = news_response.json()['articles']
     first_three_news = news_data[:3]
 

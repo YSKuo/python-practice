@@ -2,9 +2,9 @@ import requests
 from datetime import datetime
 
 
-# END_POINT = "http://api.open-notify.org/iss-now.json"
+# ENDPOINT = "http://api.open-notify.org/iss-now.json"
 
-# response = requests.get(url=END_POINT)
+# response = requests.get(url=ENDPOINT)
 # response.raise_for_status()
 
 # data = response.json()
@@ -16,7 +16,7 @@ from datetime import datetime
 # print(iss_position)
 
 
-END_POINT = "https://api.sunrise-sunset.org/json"
+ENDPOINT = "https://api.sunrise-sunset.org/json"
 MY_LAT = 25.032969
 MY_LONG = 121.565414
 
@@ -26,7 +26,7 @@ parameters = {
     "formatted": 0
 }
 
-response = requests.get(url=END_POINT, params=parameters)
+response = requests.get(url=ENDPOINT, params=parameters)
 response.raise_for_status()
 data = response.json()
 sunrise = data["results"]["sunrise"].split("T")[1].split(":")[0]
