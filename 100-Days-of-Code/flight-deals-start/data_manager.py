@@ -32,3 +32,4 @@ class DataManager:
             }
         }
         response = requests.put(url=url, headers=self.header, json=body)
+        print(response.text)

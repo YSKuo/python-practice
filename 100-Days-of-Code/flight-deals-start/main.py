@@ -16,9 +16,10 @@ ORIGIN_CITY_IATA = "LON"
 
 data_manager = DataManager()
 data_manager.get_sheet_data()
+flight_search = FlightSearch()
+notification_manager = NotificationManager()
 
 for data_row in data_manager.sheet_data:
-    flight_search = FlightSearch()
 
     # update iata code
     if data_row["iataCode"] == "":
@@ -40,7 +41,6 @@ for data_row in data_manager.sheet_data:
 
     # send sms
     if flight_data.price < data_row["lowestPrice"]:
-        notification_manager = NotificationManager()
         notification_manager.send_sms(flight_data)
 
 # pprint(data_manager.sheet_data)

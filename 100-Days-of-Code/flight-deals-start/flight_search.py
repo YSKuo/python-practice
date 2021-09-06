@@ -12,8 +12,6 @@ tequila_api_key = os.getenv("TEQUILA_API_KEY")
 
 class FlightSearch:
     # This class is responsible for talking to the Flight Search API.
-    def __init__(self):
-
     def get_iata_code(self, city):
         api_endpoint = f"{TEQUILA_ENDPOINT}/locations/query"
         headers = {"apikey": tequila_api_key}
